@@ -1,67 +1,56 @@
-intent-parser-executor
-Welcome to Your Project Title Here, an innovative intent-driven self-modifying code system. This tool allows your program to autonomously read, interpret, and apply change instructions — or intents — to its own source code, enabling dynamic evolution and customization.
+# Intent Parsing and Execution Framework
 
-Features
-Read and process natural-language-style intents from a text file.
+Easily define code changes in a text file and let Python handle the rest.  
+This framework automates inserts, deletes, replaces, and more—backed up and safe.
 
-Support for commands like insert, delete, replace, append, and modify.
+---
 
-Backup creation before each modification for safety.
+## Features
 
-Automatic ordering of intent execution to avoid conflicts.
+- **Modify lines**: Change existing lines in your code.
+- **Insert lines**: Add new lines at specific locations.
+- **Delete lines**: Remove lines safely with protections for important code.
+- **Append lines**: Add lines at the end of files.
+- **Replace lines**: Replace multiple lines at once.
+- **Automatic backups**: Every file modification is backed up with a timestamp.
+- **Safety checks**: Prevents accidental deletion of functions, classes, or blank lines.
 
-Easy customization for your own project filenames and intents.
+---
 
-Getting Started
-Requirements
-Python 3.8 or higher
+## Getting Started
 
-Basic knowledge of Python scripting
+1. Clone the repository:
 
-Installation
-Clone or download this repository.
+```bash
+git clone https://github.com/yourusername/Intent-Parsing-and-Execution-Framework.git
 
-Make sure nova_intents.txt (or your intent file) is present in the project folder.
+2. Navigate to the project folder:
+cd Intent-Parsing-and-Execution-Framework
 
-Adjust filenames and paths inside the intent file and source code comments to fit your project.
+3. Install any dependencies (if required):
+pip install -r requirements.txt
 
-Usage
-Write your intents in the project_title_intents.txt file. Examples of intents:
+4. Define your intents in project_title_intents.txt (formerly nova_intents.txt):
 
-insert your_project_file.py at line 6 with print("🔥 Inserted line at 6!")
-delete your_project_file.py from line 3 to 4
-replace your_project_file.py lines 10-11 with ["print('🔥 line 10 replaced')", "print('🔥 line 11 replaced')"]
-append your_project_file.py with print("📌 Appended line")
-Run the intent manager script:
+Examples of intents:
 
-python your_intent_manager.py
-Watch your code update automatically based on your intents!
+insert your_file.py at line 6 with print("🔥 Inserted line!")
 
-How It Works
-The manager reads the intent file line-by-line, ignoring blanks or comments.
+delete your_file.py from line 3 to 4
 
-Intents are parsed into commands and target lines.
+replace your_file.py lines 10-11 with ["print('🔥 line 10 replaced')", "print('🔥 line 11 replaced')"]
 
-Commands are grouped and executed in a safe order to prevent line conflicts:
+Run the intent manager:
+python project_title_intent_manager.py
 
-Top-down commands (modify, replace, append) first.
+HOW IT WORKS
+The manager reads each intent from the intents file.
 
-Bottom-up commands (insert, delete) second.
+Executes commands safely while creating backups.
 
-A backup copy of the modified file is created before any changes.
+Handles line shifts correctly by sorting inserts/deletes and replacements/modifications in the right order
 
-Customization
-Search for the placeholder your_project_title_here inside the scripts and replace it with your actual project filename or title.
+NOTES
+Replace all instances of your_project_title_here with your actual project name in comments and filenames.
 
-Modify the intent parsing logic if you need support for additional commands.
-
-Adjust backup folder paths or naming conventions as needed.
-
-Contributing
-Feel free to fork, improve, and submit pull requests! We welcome enhancements and bug fixes.
-
-License
-This project is licensed under the MIT License — see the LICENSE file for details.
-
-Contact
-For questions or help, reach out to Damion or your project maintainer.
+Backups are saved in the backups folder with timestamps
