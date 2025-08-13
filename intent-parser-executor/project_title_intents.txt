@@ -1,0 +1,6 @@
+# === SAMPLE INTENTS ===
+modify your_project_title_here_main.py at line 3 with print("🔥 This line was modified by the Intent Framework!")
+insert your_project_title_here_main.py at line 5 with print("✨ This line was inserted by the Intent Framework!")
+append your_project_title_here_main.py with print("📌 This line was appended by the Intent Framework!")
+replace your_project_title_here_main.py lines 8-9 with ["print('👾 Replaced line 8')", "print('👾 Replaced line 9')"]
+delete your_project_title_here_main.py from line 12 to 13
