@@ -21,9 +21,6 @@ This framework automates inserts, deletes, replaces, and more—backed up and sa
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/yourusername/Intent-Parsing-and-Execution-Framework.git
-
 2. Navigate to the project folder:
 cd Intent-Parsing-and-Execution-Framework
 
@@ -54,3 +51,4 @@ NOTES
 Replace all instances of your_project_title_here with your actual project name in comments and filenames.
 
 Backups are saved in the backups folder with timestamps
+
