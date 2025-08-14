@@ -1,54 +1,85 @@
-# Intent Parsing and Execution Framework
+# Intent Parser Executor
 
-Easily define code changes in a text file and let Python handle the rest.  
-This framework automates inserts, deletes, replaces, and more—backed up and safe.
-
----
-
-## Features
-
-- **Modify lines**: Change existing lines in your code.
-- **Insert lines**: Add new lines at specific locations.
-- **Delete lines**: Remove lines safely with protections for important code.
-- **Append lines**: Add lines at the end of files.
-- **Replace lines**: Replace multiple lines at once.
-- **Automatic backups**: Every file modification is backed up with a timestamp.
-- **Safety checks**: Prevents accidental deletion of functions, classes, or blank lines.
+A lightweight and flexible Python framework for **parsing**, **validating**, and **executing** file modification instructions (intents).  
+Perfect for automating structured file edits with safety features like backups and protected code checks.
 
 ---
 
-## Getting Started
+## ✨ Features
 
-1. Clone the repository:
+- **Structured Intent Parsing** – Supports `modify`, `insert`, `delete`, `append`, and `replace` commands.
+- **Backup Creation** – Automatically creates timestamped backups before modifying files.
+- **Safety Checks** – Prevents accidental deletion of critical code (e.g., `def`, `class` definitions).
+- **Execution Order Control** – Processes commands in the correct order to prevent line shifting errors.
+- **Extensible** – Easy to adapt for different project needs.
 
-2. Navigate to the project folder:
-cd Intent-Parsing-and-Execution-Framework
+---
 
-3. Install any dependencies (if required):
-pip install -r requirements.txt
+## 📂 Project Structure
 
-4. Define your intents in project_title_intents.txt (formerly nova_intents.txt):
+intent-parser-executor/
+├── backups/ # Auto-generated backups folder
+├── LICENSE # MIT License
+├── intent-parser-executor_intents.txt # Intent instructions file
+└── intent_manager.py # Main framework script
 
-Examples of intents:
 
-insert your_file.py at line 6 with print("🔥 Inserted line!")
 
-delete your_file.py from line 3 to 4
+---
 
-replace your_file.py lines 10-11 with ["print('🔥 line 10 replaced')", "print('🔥 line 11 replaced')"]
+## 📜 Intent File Format
 
-Run the intent manager:
-python project_title_intent_manager.py
+Each line in the `intent-parser-executor_intents.txt` file should be a single command in the supported format:
 
-HOW IT WORKS
-The manager reads each intent from the intents file.
+**Supported Commands:**
+modify filename at line X with new_content
+insert filename at line X with new_content
+delete filename from line X to Y
+append filename with new_content
+replace filename lines X-Y with ["line1", "line2", ...]
 
-Executes commands safely while creating backups.
 
-Handles line shifts correctly by sorting inserts/deletes and replacements/modifications in the right order
 
-NOTES
-Replace all instances of your_project_title_here with your actual project name in comments and filenames.
+---
 
-Backups are saved in the backups folder with timestamps
+**Examples:**
+modify example.py at line 10 with print("Hello, World!")
+insert example.py at line 5 with import os
+delete example.py from line 20 to 25
+append example.py with # End of script
+replace example.py lines 30-32 with ["print('Line 1')", "print('Line 2')"]
+
+
+---
+
+## 🚀 Usage
+
+1. **Place your intent commands** in `intent-parser-executor_intents.txt`
+2. **Run the framework**:
+   ```bash
+   python intent_manager.py
+Check the console logs for operation results
+
+Review backups in the backups/ folder if needed
+
+🛡️ Safety Notes
+Backups are stored in /backups with timestamps before each file change.
+
+Delete Protection: Will not remove def, class, or empty lines to prevent breaking code.
+
+Absolute Paths: Framework works with relative or absolute file paths.
+
+⚙️ Customization
+To adapt for your project:
+
+Open intent_manager.py
+
+Search for your_project_title_here and replace it with your actual project name (already set to intent-parser-executor here).
+
+Update intent_file variable to point to your .txt file with intents.
+
+📄 License
+This project is licensed under the MIT License – see the LICENSE file for details.
+
+💡 Pro Tip: Use CTRL+F in your code editor to search for intent-parser-executor and update any other references as needed.
 
