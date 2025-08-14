@@ -38,7 +38,25 @@ delete filename from line X to Y
 append filename with new_content
 replace filename lines X-Y with ["line1", "line2", ...]
 
+---
 
+📝 Intent File Notes
+Lines starting with # are treated as comments and ignored by the parser.
+
+Empty lines are also ignored.
+
+Only properly formatted commands are executed.
+
+Example with comments:
+
+---
+
+# === SAMPLE INTENTS ===
+# This is a comment and will be skipped
+insert test_file.py at line 1 with print("🔥 Inserted at top!")
+modify test_file.py at line 2 with print("🚀 Modified second line!")
+# Another comment here
+append test_file.py with print("✅ Appended at the end!")
 
 ---
 
@@ -57,19 +75,16 @@ replace example.py lines 30-32 with ["print('Line 1')", "print('Line 2')"]
 1. **Place your intent commands** in `intent-parser-executor_intents.txt`
 2. **Run the framework**:
    ```bash
-   python intent_manager.py
-Check the console logs for operation results
+   python project_title_manager.py
 
-Review backups in the backups/ folder if needed
-
-🛡️ Safety Notes
+### 🛡️ Safety Notes
 Backups are stored in /backups with timestamps before each file change.
 
 Delete Protection: Will not remove def, class, or empty lines to prevent breaking code.
 
 Absolute Paths: Framework works with relative or absolute file paths.
 
-⚙️ Customization
+### ⚙️ Customization
 To adapt for your project:
 
 Open intent_manager.py
@@ -82,4 +97,5 @@ Update intent_file variable to point to your .txt file with intents.
 This project is licensed under the MIT License – see the LICENSE file for details.
 
 💡 Pro Tip: Use CTRL+F in your code editor to search for intent-parser-executor and update any other references as needed.
+
 
